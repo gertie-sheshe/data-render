@@ -29,7 +29,7 @@ class App extends Component {
         });
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         const offerData = fetchData();
 
         this.setState({
@@ -40,6 +40,10 @@ class App extends Component {
         });
     }
 
+    componentWillUnmount = () => {
+        clearInterval(this.autoPopulate);
+    }
+ 
     render() {
         return (
           <div className="card-panel">
