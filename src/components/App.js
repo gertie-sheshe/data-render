@@ -17,11 +17,24 @@ class App extends Component {
 
     render() {
         return (
-            <div>
-                <p>Pocket Coach</p>
-                {this.state.data ? Object.values(this.state.data).map((data) => <Data key={data.id} data={data}/>) : null}
-            </div>
-        )
+          <div className="card-panel">
+            <table className="centered">
+              <thead className="grey lighten-1">
+                <tr>
+                  <th>ID</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Bid</th>
+                </tr>
+              </thead>
+              {this.state.data
+                ? Object.values(this.state.data).map(data => (
+                    <Data key={data.id} data={data} />
+                  ))
+                : null}
+            </table>
+          </div>
+        );
     }
 }
 

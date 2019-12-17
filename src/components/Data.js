@@ -1,11 +1,14 @@
 import React from 'react';
 
-const Data = (props) => (
-    <div>
-        <h1>{props.data.date.toString()}</h1>
-        <h1>{props.data.amount}</h1>
-        <h1>{props.data.bid}</h1>
-    </div>
+const Data = ({data: {id, date, amount, bid}}) => (
+    <tbody className="striped">
+        <tr>
+            <td>{id}</td>
+            <td>{date.toString()}</td>
+            <td>{amount}</td>
+            <td>{bid}</td>
+        </tr>
+    </tbody>
 );
 
 export default Data;
