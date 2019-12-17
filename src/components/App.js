@@ -7,11 +7,36 @@ class App extends Component {
         data: null
     }
 
+    autoPopulate = () => {
+        // New offer object data
+        const newData = fetchData();
+        const currentOfferObject = this.state.data;
+        let newObjData = {};
+
+        // Increment id in ascending order
+        Object.values(newData).map((data, index) => {
+            let newId = Object.keys(currentOfferObject).length + index;
+            data.id = newId;
+            newObjData[newId] = data;
+        });
+
+        // New incremented offer object
+        const newOfferObject = Object.assign({}, this.state.data, newObjData);
+
+        // Update state and render new data
+        this.setState({
+            data: newOfferObject
+        });
+    }
+
     componentDidMount() {
         const offerData = fetchData();
 
         this.setState({
             data: offerData
+        }, () => {
+            // Invoke after 5sec
+            // setInterval(this.autoPopulate, 5000);
         });
     }
 
