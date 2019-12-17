@@ -36,7 +36,7 @@ class App extends Component {
             data: offerData
         }, () => {
             // Invoke after 5sec
-            // setInterval(this.autoPopulate, 5000);
+            setInterval(this.autoPopulate, 5000);
         });
     }
 
